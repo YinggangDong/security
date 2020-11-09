@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
  **/
 public class Md5 {
 
-    public static void getMd5(String str){
+    public static void getMd5(String str) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("Md5");
             byte[] b = messageDigest.digest(str.getBytes());

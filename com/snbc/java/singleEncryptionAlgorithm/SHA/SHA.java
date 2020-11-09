@@ -5,13 +5,15 @@ import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-/**安全散列算法（英语：Secure Hash Algorithm，缩写为SHA）
+/**
+ * 安全散列算法（英语：Secure Hash Algorithm，缩写为SHA）
  * SHA-1 SHA-224、SHA-256、SHA-384，和SHA-512
+ *
  * @author Lee Xiang
  * @date 2020/10/27 19:27
  **/
 public class SHA {
-    public static void getMd5(String str){
+    public static void getMd5(String str) {
         try {
             //默认 SHA-1
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");

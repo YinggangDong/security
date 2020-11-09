@@ -13,7 +13,9 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
-/**RSA算法： jdk实现
+/**
+ * RSA算法： jdk实现
+ *
  * @author Lee Xiang
  * @date 2020/10/30 18:40
  **/
@@ -30,8 +32,8 @@ public class RSA {
             KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
             keyPairGenerator.initialize(512);
             KeyPair keyPair = keyPairGenerator.generateKeyPair();
-            RSAPublicKey rsaPublicKey = (RSAPublicKey)keyPair.getPublic();
-            RSAPrivateKey rsaPrivateKey = (RSAPrivateKey)keyPair.getPrivate();
+            RSAPublicKey rsaPublicKey = (RSAPublicKey) keyPair.getPublic();
+            RSAPrivateKey rsaPrivateKey = (RSAPrivateKey) keyPair.getPrivate();
             System.out.println("Public Key : " + Base64.encodeBase64String(rsaPublicKey.getEncoded()));
             System.out.println("Private Key : " + Base64.encodeBase64String(rsaPrivateKey.getEncoded()));
 
