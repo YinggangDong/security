@@ -8,7 +8,8 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 
-/**MAC（Message Authentication Code，消息认证码算法）是含有密钥散列函数算法
+/**
+ * MAC（Message Authentication Code，消息认证码算法）是含有密钥散列函数算法
  * 算法 摘要长度  备注
  * HmacMD5 128  BouncyCastle实现
  * HmacSHA1 160 BouncyCastle实现
@@ -24,7 +25,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class HMAC {
     private static String str = "snbc.security.HMAC";
 
-    public static void getHmacMd5(){
+    public static void getHmacMd5() {
         try {
             //初始化keyGenerator
             KeyGenerator keyGenerator = KeyGenerator.getInstance("HmacMd5");
@@ -34,9 +35,9 @@ public class HMAC {
             byte[] key = secretKey.getEncoded();
 
             //还原秘钥
-            SecretKey restoreSecret = new SecretKeySpec(key,"HmacMd5");
+            SecretKey restoreSecret = new SecretKeySpec(key, "HmacMd5");
             //实例化Mac
-            Mac mac =Mac.getInstance(restoreSecret.getAlgorithm());
+            Mac mac = Mac.getInstance(restoreSecret.getAlgorithm());
             //初始化mac
             mac.init(restoreSecret);
             //执行摘要
