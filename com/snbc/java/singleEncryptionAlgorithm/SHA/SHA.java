@@ -18,6 +18,7 @@ public class SHA {
             byte[] b = messageDigest.digest(str.getBytes());
             //将字节数组编码为十六进制字符串 HexBin.encode(b)
             System.out.println(HexBin.encode(b));
+            System.out.println(HexBin.encode(b).length());
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }

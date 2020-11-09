@@ -1,4 +1,12 @@
 package snbc.java.asymmetricEncryptionAlgorithm.DH;
+
+import org.apache.commons.codec.binary.Base64;
+
+import javax.crypto.Cipher;
+import javax.crypto.KeyAgreement;
+import javax.crypto.SecretKey;
+import javax.crypto.interfaces.DHPublicKey;
+import javax.crypto.spec.DHParameterSpec;
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -7,16 +15,9 @@ import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Objects;
 
-import javax.crypto.Cipher;
-import javax.crypto.KeyAgreement;
-import javax.crypto.SecretKey;
-import javax.crypto.interfaces.DHPublicKey;
-import javax.crypto.spec.DHParameterSpec;
-
-import org.apache.commons.codec.binary.Base64;
-
 /**
  * DH:密钥交换协议/算法(Diffie-Hellman Key Exchange/Agreement Algorithm)
+ *
  * @author Lee Xiang
  * @date 2020/10/21 13:36
  **/
@@ -46,7 +47,7 @@ public class DH {
             X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(senderPublicKeyEnc);
             PublicKey receiverPublicKey = receiverKeyFactory.generatePublic(x509EncodedKeySpec);
 
-            DHParameterSpec dhParameterSpec = ((DHPublicKey)receiverPublicKey).getParams();
+            DHParameterSpec dhParameterSpec = ((DHPublicKey) receiverPublicKey).getParams();
             KeyPairGenerator receiverKeyPairGenerator = KeyPairGenerator.getInstance("DH");
             receiverKeyPairGenerator.initialize(dhParameterSpec);
             KeyPair receiverKeypair = receiverKeyPairGenerator.generateKeyPair();
@@ -67,7 +68,7 @@ public class DH {
             senderKeyAgreement.doPhase(senderPublicKey, true);
             SecretKey senderDesKey = senderKeyAgreement.generateSecret("DES");
 
-            if (Objects.equals(receiverDesKey,senderDesKey)) {
+            if (Objects.equals(receiverDesKey, senderDesKey)) {
                 System.out.println("双方密钥相同");
             }
 
